@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from "../../styles/theme";
 import GlobalStyle from "../../styles/GlobalStyle";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }) {
           <GlobalStyle/>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </ThemeProvider>
       </ContextProvider>
     </Fragment>
