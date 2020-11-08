@@ -12,11 +12,11 @@ export const Container = styled.div`
   input {
     margin-top: 10px;
   }
-  form{
-  margin-top:10px;
+  form {
+    margin-top: 10px;
   }
 
-  textarea{
+  textarea {
     padding: 10px;
     line-height: 1.5;
     border-radius: 5px;

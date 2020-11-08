@@ -98,13 +98,13 @@ const Header: React.FC = () => {
     ) : (
       <LoginForm />
     );
-  }, [user, signOut]);
+  }, [user, signOut, LoginForm]);
 
   return (
     <Container>
       <Principal>
         <Logo>
-          <img src={'assets/logoalvin.svg'} alt="Imovéis de luxo" />
+          <img src="assets/logoalvin.svg" alt="Imovéis de luxo" />
         </Logo>
         {isLoggedIn()}
       </Principal>

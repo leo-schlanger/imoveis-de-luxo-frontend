@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useState } from 'react';
-//import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 import { BiArrowToLeft, BiArrowToRight } from 'react-icons/bi';
 import { useQuery } from '@apollo/react-hooks';
@@ -94,11 +94,17 @@ const Home: React.FC = () => {
       </Form>
       <Houses>
         <AddTable>
-          {data && data.advertisements.list &&
+          {data &&
+            data.advertisements.list &&
             data.advertisements.list.map((advertisement) => (
               <li key={advertisement.id}>
                 <a href={`advertisement-details/${advertisement.id}`}>
-                  <Image src="/assets/casa.svg" alt="house" width={500} height={500} />
+                  <Image
+                    src="/assets/casa.svg"
+                    alt="house"
+                    width={500}
+                    height={500}
+                  />
                   <h6>{advertisement.title}</h6>
                   <hr />
                   <p>Venda</p>

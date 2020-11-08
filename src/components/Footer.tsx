@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
-import { Container, Line, Base, FooterForm } from '../../styles/components/Footer';
+import {
+  Container,
+  Line,
+  Base,
+  FooterForm,
+} from '../../styles/components/Footer';
 
 const Footer: React.FC = () => {
   return (
@@ -15,7 +20,7 @@ const Footer: React.FC = () => {
         </FooterForm>
         <Line />
         <Base>
-          <img src={'/assets/logo2.png'} alt="imoveis de luxo" />
+          <img src="/assets/logo2.png" alt="imoveis de luxo" />
           <p>&copy; 2007 - Imóveis de Luxo - Todos os direitos reservados</p>
         </Base>
       </Container>

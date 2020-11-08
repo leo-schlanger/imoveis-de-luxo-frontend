@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
-import colors from '../../styles/colors';
+import colors from '../colors';
 
 export const Container = styled.div`
   > header {

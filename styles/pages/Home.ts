@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // import { shade } from 'polished';
-import colors from '../../styles/colors';
+import colors from '../colors';
 
 interface AdvertisementProps {
   background_url: string;
@@ -108,7 +108,7 @@ export const Houses = styled.div`
   justify-content: center;
   font-size: 20px;
   font-family: 'Open sans';
-  margin-top:10px;
+  margin-top: 10px;
 `;
 
 export const AddTable = styled.ul`
@@ -155,13 +155,15 @@ export const EndBar = styled.div`
   font-size: 20px;
   font-family: 'Open sans';
 
-  button { margin-left: 20%;
+  button {
+    margin-left: 20%;
     color: #c1b994;
     border-radius: 4px;
     padding: 12px;
   }
 
-  button + button { margin-left: 60%;
+  button + button {
+    margin-left: 60%;
     border-radius: 4px;
     color: #c1b994;
     padding: 12px;

@@ -31,10 +31,7 @@ const PlansProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     api.get('plans').then((response) => {
-      Cookies.set(
-        '@ImoveisDeLuxo:plans',
-        JSON.stringify(response.data),
-      );
+      Cookies.set('@ImoveisDeLuxo:plans', JSON.stringify(response.data));
 
       setPlans(response.data);
     });

@@ -7,9 +7,9 @@ import {
   useEffect,
 } from 'react';
 import Cookies from 'js-cookie';
+import { CircularProgress } from '@material-ui/core';
 import api from '../libs/api';
 import { User } from '../libs/entities/user';
-import { CircularProgress } from '@material-ui/core';
 
 interface AuthState {
   token: string;
@@ -120,12 +120,7 @@ function useAuth(): AuthContextData {
 const ProtectRoute: React.FC = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
   if (isLoading || (!isAuthenticated && window.location.pathname !== '/')) {
-    return (
-        <CircularProgress
-          size="180px"
-          color="primary"
-        />
-    );
+    return <CircularProgress size="180px" color="primary" />;
   }
   return <>{children}</>;
 };

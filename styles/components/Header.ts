@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
-import colors from '../../styles/colors';
+import colors from '../colors';
 
 const appearFromTop = keyframes`
   from{

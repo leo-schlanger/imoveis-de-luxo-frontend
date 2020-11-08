@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import {
   FiAlertCircle,
   FiXCircle,
@@ -5,10 +6,10 @@ import {
   FiInfo,
 } from 'react-icons/fi';
 
+import { useEffect } from 'react';
 import { ToastMessage, useToast } from '../hooks/toast';
 
 import { Container } from '../../styles/components/Toast';
-import { useEffect } from 'react';
 
 interface ToastProps {
   message: ToastMessage;

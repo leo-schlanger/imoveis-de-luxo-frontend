@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useRef,
-  ChangeEvent,
-  useMemo,
-  useState,
-} from 'react';
+import { useCallback, useRef, ChangeEvent, useMemo, useState } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { FiMail, FiUser, FiLock, FiCamera, FiArrowLeft } from 'react-icons/fi';
@@ -15,20 +9,21 @@ import api from '../libs/api';
 import { useToast } from '../hooks/toast';
 import { useAuth } from '../hooks/auth';
 
-import {
-  schemaEditProfile,
-  isSchemaValidationError,
-} from '../utils/schemas';
+import { schemaEditProfile, isSchemaValidationError } from '../utils/schemas';
 import getValidationErrors from '../utils/getValidationErrors';
 
 import { FIND_USERS_ADVERTISEMENTS } from '../libs/gql/advertisements';
 import { Advertisement } from '../libs/entities/advertisements';
 
-
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-import { Container, Content, AvatarInput, AddTable } from '../../styles/pages/Profile';
+import {
+  Container,
+  Content,
+  AvatarInput,
+  AddTable,
+} from '../../styles/pages/Profile';
 
 interface IQueryData {
   advertisements: {
@@ -205,7 +200,7 @@ const Profile: React.FC = () => {
             data.advertisements.list.map((advertisement) => (
               <li>
                 <Link href={`advertisement-details/${advertisement.id}`}>
-                  <img src={'assets/casa.svg'} alt="house" />
+                  <img src="assets/casa.svg" alt="house" />
                   <h6>{advertisement.title}</h6>
                   <hr />
                   <p>Venda</p>
