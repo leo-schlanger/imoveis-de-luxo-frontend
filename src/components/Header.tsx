@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -28,9 +28,14 @@ interface SignInFormData {
 
 const Header: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const [isOn, setIsOn] = useState(false);
 
   const { signIn, signOut, user } = useAuth();
   const { addToast } = useToast();
+
+  useEffect(() => {
+    setIsOn(!!user);
+  }, [user]);
 
   const LoginForm = useCallback(() => {
     const handleSubmit = async (data: SignInFormData): Promise<void> => {
@@ -110,7 +115,9 @@ const Header: React.FC = () => {
       </Principal>
       <Navbar>
         <Link href="/">Principal</Link>
-        <Link href="/advertisement-registration">Anuncie aqui</Link>
+        <Link href={isOn ? '/advertisement-registration' : '/signup'}>
+          {isOn ? 'Anuncie aqui' : 'Crie sua conta'}
+        </Link>
         <Link href="/advertisement-search">Busca de Imoveis</Link>
         <Link href="/Faq">Informações</Link>
         <Link href="contacts/">Contato</Link>

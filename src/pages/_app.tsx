@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 import ContextProvider from '../hooks';
 import theme from '../../styles/theme';
 import GlobalStyle from '../../styles/GlobalStyle';
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }): JSX.Element {
       <ContextProvider>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
+          {/* <CssBaseline /> */}
           <GlobalStyle />
           <Header />
           <Component {...pageProps} />
