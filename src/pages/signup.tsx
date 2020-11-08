@@ -14,13 +14,6 @@ import {
 } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
-import Timeline from '@material-ui/lab/Timeline';
-import TimelineItem from '@material-ui/lab/TimelineItem';
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
-import TimelineConnector from '@material-ui/lab/TimelineConnector';
-import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineDot from '@material-ui/lab/TimelineDot';
-
 import {
   Container,
   StepForm,
@@ -32,6 +25,12 @@ import {
   PaymentMethodContainer,
   PlanSelectedInfo,
   Success,
+  Timeline,
+  TimelineSeparator,
+  TimelineContent,
+  TimelineDot,
+  TimelineConnector,
+  TimelineItem,
 } from '../../styles/pages/SignUp';
 
 import api from '../libs/api';
@@ -42,9 +41,9 @@ import { useToast } from '../hooks/toast';
 
 import Button from '../components/Button';
 import Input from '../components/Input';
-import CreditCardPayment, {
-  CreditCardData,
-} from '../components/CreditCardPayment';
+// import CreditCardPayment, {
+//   CreditCardData,
+// } from '../components/CreditCardPayment';
 import { useAuth } from '../hooks/auth';
 import { usePlans, Plan as IPlan } from '../hooks/plans';
 import { schemaSignUp, isSchemaValidationError } from '../utils/schemas';
@@ -181,12 +180,11 @@ const SignUp: React.FC = () => {
   }, [plans]);
 
   const PaymentMethod = useCallback(() => {
-    const handlePaymentCreditCard = async (
-      data: CreditCardData,
-    ): Promise<void> => {
+    const handlePaymentCreditCard = async (): // data: CreditCardData,
+    Promise<void> => {
       try {
         // eslint-disable-next-line no-console
-        console.log(data);
+        // console.log(data);
         const response = await api.put(`users/plan/${selectedPlan?.id}`);
         setCurrent(3);
         updateUser(response.data);
@@ -209,7 +207,8 @@ const SignUp: React.FC = () => {
           <p>{selectedPlan?.name}</p>
           <p>{selectedPlan?.value}</p>
         </PlanSelectedInfo>
-        <CreditCardPayment handleSubmit={handlePaymentCreditCard} />
+        {/* <CreditCardPayment handleSubmit={handlePaymentCreditCard} /> */}
+        <Button onClick={handlePaymentCreditCard}>Confirmar</Button>
       </PaymentMethodContainer>
     );
   }, [selectedPlan, updateUser]);
@@ -236,57 +235,50 @@ const SignUp: React.FC = () => {
       default:
         return <ShowSuccess />;
     }
-  }, [current]);
+  }, [current, FormSignUp, Plans, PaymentMethod, ShowSuccess]);
 
   return (
     <Container>
-      <StepView>
-        {/* <Steps current={current}>
-          <Steps.Item title="Faça seu cadastro" icon={<FiCoffee size={20} />} />
-          <Steps.Item
-            title="Escolha seu plano"
-            icon={<FiBookOpen size={20} />}
-          />
-          <Steps.Item
-            title="Realizar pagamento"
-            icon={<FiCreditCard size={20} />}
-          />
-          <Steps.Item
-            title="Termos de uso"
-            icon={<FiCheckCircle size={20} />}
-          />
-        </Steps> */}
-        <Timeline align="right">
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Eat</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Code</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Sleep</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-            </TimelineSeparator>
-            <TimelineContent>Repeat</TimelineContent>
-          </TimelineItem>
-        </Timeline>
-      </StepView>
-      {/* {currentStep()} */}
+      {/* <StepView> */}
+      <Timeline align="right">
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot>
+              <FiCoffee size={20} />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Faça seu cadastro</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot>
+              <FiBookOpen size={20} />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Escolha seu plano</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot>
+              <FiCreditCard size={20} />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>Realizar pagamento</TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot>
+              <FiCheckCircle size={20} />
+            </TimelineDot>
+          </TimelineSeparator>
+          <TimelineContent>Termos de uso</TimelineContent>
+        </TimelineItem>
+      </Timeline>
+      {/* </StepView> */}
+      {currentStep()}
     </Container>
   );
 };

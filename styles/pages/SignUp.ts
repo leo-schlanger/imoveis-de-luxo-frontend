@@ -1,17 +1,27 @@
 import styled, { keyframes } from 'styled-components';
-import colors from '../../styles/colors';
+import TimelineMaterialUI from '@material-ui/lab/Timeline';
+import TimelineSeparatorMaterialUI from '@material-ui/lab/TimelineSeparator';
+import TimelineContentMaterialUI from '@material-ui/lab/TimelineContent';
+import TimelineDotMaterialUI from '@material-ui/lab/TimelineDot';
+import TimelineConnectorMaterialUI from '@material-ui/lab/TimelineConnector';
+import TimelineItemMaterialUI from '@material-ui/lab/TimelineItem';
+
+import colors from '../colors';
 
 export const Container = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 `;
 
 export const StepView = styled.div`
-  width: 100%;
+  align-self: center;
+  align-items: flex-end;
+  height: 30vh;
+  width: 80%;
   margin-top: 48px;
   margin-bottom: 16px;
   padding: 0px 10%;
@@ -227,4 +237,35 @@ export const Success = styled.div`
   h1 {
     margin-bottom: 16px;
   }
+`;
+
+export const Timeline = styled(TimelineMaterialUI)`
+  display: flex;
+  height: 60vw;
+  width: 120px;
+  transform: rotate(-90deg);
+`;
+
+export const TimelineSeparator = styled(TimelineSeparatorMaterialUI)`
+  width: 50px;
+`;
+
+export const TimelineContent = styled(TimelineContentMaterialUI)`
+  width: 80px;
+  height: 100px;
+  transform: rotate(90deg);
+  text-align: 'flex-start';
+`;
+
+export const TimelineDot = styled(TimelineDotMaterialUI)`
+  transform: rotate(90deg);
+`;
+
+export const TimelineConnector = styled(TimelineConnectorMaterialUI)`
+  height: 200px;
+  width: 30px;
+`;
+
+export const TimelineItem = styled(TimelineItemMaterialUI)`
+  height: 600px;
 `;
