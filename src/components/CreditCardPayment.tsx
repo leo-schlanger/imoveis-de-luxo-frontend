@@ -2,7 +2,11 @@ import { useState, useCallback, useRef } from 'react';
 import Cards from 'react-credit-cards';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import { CreditCardMethod, CardContainer, PageContainer } from '../../styles/components/CreditCardPayment';
+import {
+  CreditCardMethod,
+  CardContainer,
+  PageContainer,
+} from '../../styles/components/CreditCardPayment';
 import 'react-credit-cards/es/styles-compiled.css';
 import Button from './Button';
 import Input from './Input';

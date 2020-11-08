@@ -11,9 +11,7 @@ const appearFromRight = keyframes`
   }
 `;
 
-export const PageContainer = styled.div`
-
-`;
+export const PageContainer = styled.div``;
 
 export const CreditCardMethod = styled.div`
   display: flex;
@@ -23,8 +21,6 @@ export const CreditCardMethod = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 120px;
-  
-  
 
   animation: ${appearFromRight} 1s;
 

@@ -13,8 +13,13 @@ import {
   FiArrowLeft,
 } from 'react-icons/fi';
 import { useRouter } from 'next/router';
-import { Steps } from '';
-import '../../styles/rsuite-custom.css';
+
+import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
 
 import {
   Container,
@@ -27,7 +32,7 @@ import {
   PaymentMethodContainer,
   PlanSelectedInfo,
   Success,
-} from '../../styles/pages/signup';
+} from '../../styles/pages/SignUp';
 
 import api from '../libs/api';
 
@@ -212,9 +217,9 @@ const SignUp: React.FC = () => {
   const ShowSuccess = useCallback(() => {
     return (
       <Success>
-       <Terms/>
+        <Terms />
         <Button onClick={() => router.push('/advertisement-registration')}>
-         Ok Aceito
+          Ok Aceito
         </Button>
       </Success>
     );
@@ -236,7 +241,7 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <StepView>
-        <Steps current={current}>
+        {/* <Steps current={current}>
           <Steps.Item title="Faça seu cadastro" icon={<FiCoffee size={20} />} />
           <Steps.Item
             title="Escolha seu plano"
@@ -246,10 +251,42 @@ const SignUp: React.FC = () => {
             title="Realizar pagamento"
             icon={<FiCreditCard size={20} />}
           />
-          <Steps.Item title="Termos de uso" icon={<FiCheckCircle size={20} />} />
-        </Steps>
+          <Steps.Item
+            title="Termos de uso"
+            icon={<FiCheckCircle size={20} />}
+          />
+        </Steps> */}
+        <Timeline align="right">
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Eat</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Code</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Sleep</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+            </TimelineSeparator>
+            <TimelineContent>Repeat</TimelineContent>
+          </TimelineItem>
+        </Timeline>
       </StepView>
-      {currentStep()}
+      {/* {currentStep()} */}
     </Container>
   );
 };
