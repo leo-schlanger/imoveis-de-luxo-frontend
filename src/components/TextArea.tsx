@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-types */
-import React, { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useField } from '@unform/core';
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Form } from '@unform/web';
 import { FiUser, FiMail, FiPhone } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';

@@ -159,3 +159,27 @@ export const UPDATE_ADVERTISEMENT = gql`
     }
   }
 `;
+
+export const FIND_USERS_ADVERTISEMENTS = gql`
+  query findAdvertisements($per_page: Int, $page: Int, $user_id: String) {
+    advertisements(
+      data: { per_page: $per_page, page: $page, filter: { user_id: $user_id } }
+    ) {
+      list {
+        id
+        title
+        type
+        property {
+          type
+        }
+        gallery {
+          url
+        }
+        user {
+          name
+        }
+      }
+      total
+    }
+  }
+`;

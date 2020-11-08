@@ -28,7 +28,7 @@ interface AuthContextData {
   token: string | null;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
-  // updateUser(user: User): void;
+  updateUser(user: User): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -80,19 +80,19 @@ const AuthProvider: React.FC = ({ children }) => {
     setData({ user: null, token: null });
   }, []);
 
-  // const updateUser = useCallback(
-  //   (user: User) => {
-  //     Cookies.set('@ImoveisDeLuxoAdm:user', JSON.stringify(user), {
-  //       expires: 2,
-  //     });
+  const updateUser = useCallback(
+    (user: User) => {
+      Cookies.set('@ImoveisDeLuxoAdm:user', JSON.stringify(user), {
+        expires: 2,
+      });
 
-  //     setData({
-  //       token: data.token,
-  //       user,
-  //     });
-  //   },
-  //   [setData, data.token],
-  // );
+      setData({
+        token: data.token,
+        user,
+      });
+    },
+    [setData, data.token],
+  );
 
   return (
     <AuthContext.Provider
@@ -103,7 +103,7 @@ const AuthProvider: React.FC = ({ children }) => {
         user: data.user,
         signIn,
         signOut,
-        // updateUser,
+        updateUser,
       }}
     >
       {children}

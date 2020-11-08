@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import ReactSelect, {
   OptionTypeBase,
   Props as SelectProps,
