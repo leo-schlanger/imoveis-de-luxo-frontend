@@ -6,26 +6,30 @@ import { FormHandles } from '@unform/core';
 import { Container } from '../../styles/pages/Contacts';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 const Terms: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   return (
-    <Container>
-      <h1>Contatos</h1>
-      <p>
-        Envie seus pedidos, dúvidas ou sugestões, através do formulário abaixo
-        ou por telefone.
-      </p>
+    <>
+      <SEO title="Contatos" />
+      <Container>
+        <h1>Contatos</h1>
+        <p>
+          Envie seus pedidos, dúvidas ou sugestões, através do formulário abaixo
+          ou por telefone.
+        </p>
 
-      <Form ref={formRef} onSubmit={() => {}}>
-        <Input name="name" icon={FiUser} placeholder="Nome" />
-        <Input name="email" icon={FiMail} placeholder="E-mail" />
-        <Input name="phone" icon={FiPhone} placeholder="Telefone" />
-        <textarea name="message" placeholder="Mensagem" />
-        <Button>Enviar</Button>
-      </Form>
-    </Container>
+        <Form ref={formRef} onSubmit={() => {}}>
+          <Input name="name" icon={FiUser} placeholder="Nome" />
+          <Input name="email" icon={FiMail} placeholder="E-mail" />
+          <Input name="phone" icon={FiPhone} placeholder="Telefone" />
+          <textarea name="message" placeholder="Mensagem" />
+          <Button>Enviar</Button>
+        </Form>
+      </Container>
+    </>
   );
 };
 

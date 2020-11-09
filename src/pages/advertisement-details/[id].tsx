@@ -8,6 +8,7 @@ import { FiHome } from 'react-icons/fi';
 import { useQuery } from '@apollo/react-hooks';
 import { FaBed, FaParking, FaShower } from 'react-icons/fa';
 import { IoIosCube } from 'react-icons/io';
+import Image from 'next/image';
 import {
   Container,
   Adescription,
@@ -19,11 +20,9 @@ import {
   GridHolder,
 } from '../../../styles/pages/AdvertisementsDetails';
 
-
-
 import { Advertisement } from '../../libs/entities/advertisements';
 import { FIND_ADVERTISEMENT_BY_ID } from '../../libs/gql/advertisements';
-import Image from 'next/image';
+// import SEO from '../../components/SEO';
 
 interface IQueryData {
   getAdvertisementById: Advertisement;
@@ -33,10 +32,10 @@ const AdvertisementDetails: React.FC = () => {
   const [advertisement, setAdvertisement] = useState<
     Advertisement | undefined
   >();
-  const { query } =  useRouter();
-  
-  const { data , error} = useQuery<IQueryData>(FIND_ADVERTISEMENT_BY_ID, {
-    variables: { id: parseInt(String(query.id) ,10) },
+  const { query } = useRouter();
+
+  const { data, error } = useQuery<IQueryData>(FIND_ADVERTISEMENT_BY_ID, {
+    variables: { id: parseInt(String(query.id), 10) },
   });
 
   useEffect(() => {
@@ -45,41 +44,25 @@ const AdvertisementDetails: React.FC = () => {
   }, [data, error]);
 
   return (
-    <Container>
-       <GridHolder  >
-      <GridList cols={2.5}>
-        
-          <GridListTile >
-          <img
-                    src="/assets/casa.svg"
-                    alt="house"
-                    
-                  />
-          </GridListTile>
-          <GridListTile >
-          <img
-                    src="/assets/casa.svg"
-                    alt="house"
-                    
-                  />
-          </GridListTile>
-          <GridListTile >
-          <img
-                    src="/assets/casa.svg"
-                    alt="house"
-                    
-                  />
-          </GridListTile>
-          <GridListTile >
-          <img
-                    src="/assets/casa.svg"
-                    alt="house"
-                   
-                  />
-                  
-          </GridListTile>
-        </GridList>
-    </GridHolder>
+    <>
+      {/* <SEO title={data.getAdvertisementById.title} /> */}
+      <Container>
+        <GridHolder>
+          <GridList cols={2.5}>
+            <GridListTile>
+              <img src="/assets/casa.svg" alt="house" />
+            </GridListTile>
+            <GridListTile>
+              <img src="/assets/casa.svg" alt="house" />
+            </GridListTile>
+            <GridListTile>
+              <img src="/assets/casa.svg" alt="house" />
+            </GridListTile>
+            <GridListTile>
+              <img src="/assets/casa.svg" alt="house" />
+            </GridListTile>
+          </GridList>
+        </GridHolder>
         {/* <Carousel
           showThumbs
           dynamicHeight={false}
@@ -91,8 +74,8 @@ const AdvertisementDetails: React.FC = () => {
               <img alt="image3" src={item.url} />
             ))}
         </Carousel> */}
-       <Adinfo>
-        {/* {advertisements.map(advertisement =>
+        <Adinfo>
+          {/* {advertisements.map(advertisement =>
             <li>
             <h6>{advertisement.title}</h6>
             <img src={advertisement.gallery[0].filename} alt="house" />
@@ -100,40 +83,37 @@ const AdvertisementDetails: React.FC = () => {
 
           </li>
             )} */}
-        <FaBed size="2rem" color="#c1b994" />
-        <p>infos</p>
-        <FaParking size="2rem" color="#c1b994" />
-        <p>infos</p>
-        <FaShower size="2rem" color="#c1b994" />
-        <p>infos</p>
-        <IoIosCube size="2rem" color="#c1b994" />
-        <p>infos</p>
-      </Adinfo>
-      <Adseller>
-        <FiHome size="2rem" color="#c1b994" />
-        <p>infos</p>
-      </Adseller>
-      <Adescription> 
-        <hr/>
+          <FaBed size="2rem" color="#c1b994" />
+          <p>infos</p>
+          <FaParking size="2rem" color="#c1b994" />
+          <p>infos</p>
+          <FaShower size="2rem" color="#c1b994" />
+          <p>infos</p>
+          <IoIosCube size="2rem" color="#c1b994" />
+          <p>infos</p>
+        </Adinfo>
+        <Adseller>
+          <FiHome size="2rem" color="#c1b994" />
+          <p>infos</p>
+        </Adseller>
+        <Adescription>
+          <hr />
           <p>
-          Endereço:
-          <br />
-          {advertisement &&
-            `${advertisement.property.address.country} ${advertisement.property.address.state} ${advertisement.property.address.neighborhood} ${advertisement.property.address.number}`}
-        </p>
-        <hr/>
-        <p>
-          Descrição:
-          <br />
-          {advertisement && advertisement.description}
-        <hr/>
-        </p>
-
-       
-      </Adescription>
-     
-    
-    </Container>
+            Endereço:
+            <br />
+            {advertisement &&
+              `${advertisement.property.address.country} ${advertisement.property.address.state} ${advertisement.property.address.neighborhood} ${advertisement.property.address.number}`}
+          </p>
+          <hr />
+          <p>
+            Descrição:
+            <br />
+            {advertisement && advertisement.description}
+            <hr />
+          </p>
+        </Adescription>
+      </Container>
+    </>
   );
 };
 

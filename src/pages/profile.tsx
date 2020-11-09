@@ -24,6 +24,7 @@ import {
   AvatarInput,
   AddTable,
 } from '../../styles/pages/Profile';
+import SEO from '../components/SEO';
 
 interface IQueryData {
   advertisements: {
@@ -137,83 +138,86 @@ const Profile: React.FC = () => {
   });
 
   return (
-    <Container>
-      <header>
-        <div>
-          <Link href="/">
-            <FiArrowLeft />
-          </Link>
-        </div>
-      </header>
+    <>
+      <SEO title="Meu perfil" />
+      <Container>
+        <header>
+          <div>
+            <Link href="/">
+              <FiArrowLeft />
+            </Link>
+          </div>
+        </header>
 
-      <Content>
-        <Form
-          ref={formRef}
-          initialData={{
-            name: user.name,
-            email: user.email,
-          }}
-          onSubmit={handleSubmit}
-        >
-          <AvatarInput>
-            <img data-testid="image" src={imageURL} alt={user.name} />
-            <label htmlFor="avatar">
-              <FiCamera />
+        <Content>
+          <Form
+            ref={formRef}
+            initialData={{
+              name: user.name,
+              email: user.email,
+            }}
+            onSubmit={handleSubmit}
+          >
+            <AvatarInput>
+              <img data-testid="image" src={imageURL} alt={user.name} />
+              <label htmlFor="avatar">
+                <FiCamera />
 
-              <input
-                type="file"
-                id="avatar"
-                onChange={handleAvatarChange}
-                data-testid="input-file"
-              />
-            </label>
-          </AvatarInput>
+                <input
+                  type="file"
+                  id="avatar"
+                  onChange={handleAvatarChange}
+                  data-testid="input-file"
+                />
+              </label>
+            </AvatarInput>
 
-          <h1>Meu Perfil</h1>
+            <h1>Meu Perfil</h1>
 
-          <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-          <Input
-            containerStyle={{ marginTop: 24 }}
-            name="old_password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha atual"
-          />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Nova senha"
-          />
-          <Input
-            name="password_confirmation"
-            icon={FiLock}
-            type="password"
-            placeholder="Confirmar senha"
-          />
-          <Button type="submit">Confirmar mudanças</Button>
-        </Form>
-        <AddTable>
-          {data &&
-            data.advertisements.list.map((advertisement) => (
-              <li>
-                <Link href={`advertisement-details/${advertisement.id}`}>
-                  <img src="assets/casa.svg" alt="house" />
-                  <h6>{advertisement.title}</h6>
-                  <hr />
-                  <p>Venda</p>
-                  <h6>Rio de janeiro</h6>
-                  <p>{advertisement.property.value}</p>
-                  <h6>Preço</h6>
-                  <hr />
-                </Link>
-              </li>
-            ))}
-        </AddTable>
-      </Content>
-    </Container>
+            <Input
+              containerStyle={{ marginTop: 24 }}
+              name="old_password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha atual"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Nova senha"
+            />
+            <Input
+              name="password_confirmation"
+              icon={FiLock}
+              type="password"
+              placeholder="Confirmar senha"
+            />
+            <Button type="submit">Confirmar mudanças</Button>
+          </Form>
+          <AddTable>
+            {data &&
+              data.advertisements.list.map((advertisement) => (
+                <li>
+                  <Link href={`advertisement-details/${advertisement.id}`}>
+                    <img src="assets/casa.svg" alt="house" />
+                    <h6>{advertisement.title}</h6>
+                    <hr />
+                    <p>Venda</p>
+                    <h6>Rio de janeiro</h6>
+                    <p>{advertisement.property.value}</p>
+                    <h6>Preço</h6>
+                    <hr />
+                  </Link>
+                </li>
+              ))}
+          </AddTable>
+        </Content>
+      </Container>
+    </>
   );
 };
 

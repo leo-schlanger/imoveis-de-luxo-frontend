@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 import {
   Container,
   StepForm,
-  StepView,
+  // StepView,
   PlansTable,
   PlanContainer,
   Plan,
@@ -48,6 +48,7 @@ import { useAuth } from '../hooks/auth';
 import { usePlans, Plan as IPlan } from '../hooks/plans';
 import { schemaSignUp, isSchemaValidationError } from '../utils/schemas';
 import Terms from './terms';
+import SEO from '../components/SEO';
 
 interface SignUpFormData {
   name: string;
@@ -238,48 +239,51 @@ const SignUp: React.FC = () => {
   }, [current, FormSignUp, Plans, PaymentMethod, ShowSuccess]);
 
   return (
-    <Container>
-      {/* <StepView> */}
-      <Timeline align="right">
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot>
-              <FiCoffee size={20} />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>Faça seu cadastro</TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot>
-              <FiBookOpen size={20} />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>Escolha seu plano</TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot>
-              <FiCreditCard size={20} />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>Realizar pagamento</TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot>
-              <FiCheckCircle size={20} />
-            </TimelineDot>
-          </TimelineSeparator>
-          <TimelineContent>Termos de uso</TimelineContent>
-        </TimelineItem>
-      </Timeline>
-      {/* </StepView> */}
-      {currentStep()}
-    </Container>
+    <>
+      <SEO title="Cadastrar-se" />
+      <Container>
+        {/* <StepView> */}
+        <Timeline align="right">
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot>
+                <FiCoffee size={20} />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Faça seu cadastro</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot>
+                <FiBookOpen size={20} />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Escolha seu plano</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot>
+                <FiCreditCard size={20} />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>Realizar pagamento</TimelineContent>
+          </TimelineItem>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot>
+                <FiCheckCircle size={20} />
+              </TimelineDot>
+            </TimelineSeparator>
+            <TimelineContent>Termos de uso</TimelineContent>
+          </TimelineItem>
+        </Timeline>
+        {/* </StepView> */}
+        {currentStep()}
+      </Container>
+    </>
   );
 };
 
