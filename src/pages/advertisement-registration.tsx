@@ -3,10 +3,10 @@ import React, { ChangeEvent, useCallback, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { FiBookOpen,  FiCheckCircle } from 'react-icons/fi';
-import { Redirect, useHistory } from 'react-router-dom';
 
+import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/react-hooks';
-import { Steps } from 'rsuite';
+
 import {
   Container,
   StepView,
@@ -21,7 +21,6 @@ import {
 import {} from '../components/Header';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
-import '../../styles/rsuite-custom.css';
 import Button from '../components/Button';
 import { useAuth } from '../hooks/auth';
 import { useToast } from '../hooks/toast';
@@ -40,7 +39,7 @@ import {
 } from '../libs/entities/advertisements';
 import Select from '../components/Select';
 
-import '../../styles/rsuite-custom.css';
+
 import api from '../libs/api';
 
 interface AdvertisementRegistrationData {
@@ -84,7 +83,7 @@ const AdvertisementRegistration: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { user } = useAuth();
   const { addToast } = useToast();
-  const history = useHistory();
+  const router = useRouter();
   const [createAdvertisement, { error }] = useMutation(CREATE_ADVERTISEMENT);
 
   const handleSubmit = useCallback(
@@ -274,14 +273,14 @@ const AdvertisementRegistration: React.FC = () => {
         <h1>Cadastro do imóvel concluído!! </h1>
         <Button
           onClick={() =>
-            history.push(`/advertisement-details/${advertisementId}`)
+            router.push(`/advertisement-details/${advertisementId}`)
           }
         >
           Ver Anúncio
         </Button>
       </Success>
     );
-  }, [history, advertisementId]);
+  }, [router, advertisementId]);
 
   const currentStep = useCallback(() => {
     switch (current) {
@@ -293,13 +292,6 @@ const AdvertisementRegistration: React.FC = () => {
         return <ShowSuccess />;
     }
   }, [current]);
-
-  if (
-    user &&
-    (user.type === 'user' || (user.type === 'advertiser' && !user.plan_status))
-  ) {
-    return <Redirect to="/signup" />;
-  }
 
   return (
     <Container>
