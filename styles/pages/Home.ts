@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 // import { shade } from 'polished';
 import colors from '../colors';
+import GridListMaterialUI from '@material-ui/core/GridList';
+import GridListTileMaterialUI from '@material-ui/core/GridListTile';
+import GridListTileBarMaterialUI from '@material-ui/core/GridListTileBar';
+
+
 
 interface AdvertisementProps {
   background_url: string;
@@ -36,6 +41,7 @@ export const DivisionBar = styled.div`
   color: black;
   font-weight: 500;
   padding: 18px;
+  
   a {
     display: flex;
     align-items: center;
@@ -111,6 +117,7 @@ export const Houses = styled.div`
   margin-top: 10px;
 `;
 
+
 export const AddTable = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -168,4 +175,27 @@ export const EndBar = styled.div`
     color: #c1b994;
     padding: 12px;
   }
+`;
+
+
+export const GridHolder = styled.div`
+width:100%;
+`;
+
+export const GridList = styled(GridListMaterialUI)`
+width:100%;
+flex-direction: row;
+
+`;
+
+export const GridListTile = styled(GridListTileMaterialUI)`
+color: theme.palette.primary.light;
+flex-direction: row;
+
+`;
+
+export const GridListTileBar = styled(GridListTileBarMaterialUI)`
+background:
+        linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
+    
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import GridListMaterialUI from '@material-ui/core/GridList';
 import GridListTileMaterialUI from '@material-ui/core/GridListTile';
 import GridListTileBarMaterialUI from '@material-ui/core/GridListTileBar';
@@ -97,18 +98,19 @@ export const Adlist = styled.div`
 `;
 
 export const GridHolder = styled.div`
-display: flex;
-flexWrap: wrap;
-flex-direction:row;
 width:80%;
-justifyContent: space-around;
-overflow: hidden;
-backgroundColor: theme.palette.background.paper;
+height:200px;
+overflow-x:scroll;
+overflow-y:block;
+
 `;
 
 export const GridList = styled(GridListMaterialUI)`
-flexWrap: nowrap;
-transform: translateZ(0);
+img {
+  width: 500px;
+  height: 200px;
+}
+display: flex;
 `;
 
 export const GridListTile = styled(GridListTileMaterialUI)`

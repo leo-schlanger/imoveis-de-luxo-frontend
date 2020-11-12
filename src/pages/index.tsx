@@ -14,6 +14,10 @@ import {
   Houses,
   AddTable,
   EndBar,
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  GridHolder,
 } from '../../styles/pages/Home';
 import Select from '../components/Select';
 import { FIND_ADVERTISEMENTS } from '../libs/gql/advertisements';
@@ -55,6 +59,18 @@ const Home: React.FC = () => {
     <>
       <SEO title="Página principal" />
       <Container>
+
+      <GridHolder >
+          <GridList cellHeight="auto"   >
+            <GridListTile cols={1} rows={0.5} >
+            <img src="/assets/casa.svg" alt="house" />
+            </GridListTile>
+            
+            
+            
+          </GridList>
+        </GridHolder>
+
         {/* <Carousel showThumbs={false} infiniteLoop autoPlay>
         <div>
           <Image src="/assets/casa.svg" alt="house" width={500} height={500} />
@@ -69,7 +85,7 @@ const Home: React.FC = () => {
           <p>Casa Paris</p>
         </div>
       </Carousel> */}
-        <SearchBar />
+       
 
         <DivisionBar>
           <a href="/">Rio de Janeiro</a>
