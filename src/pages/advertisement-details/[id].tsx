@@ -1,6 +1,4 @@
-import { Button } from '@material-ui/core';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
 import { FiHome } from 'react-icons/fi';
@@ -8,15 +6,15 @@ import { FiHome } from 'react-icons/fi';
 import { useQuery } from '@apollo/react-hooks';
 import { FaBed, FaParking, FaShower } from 'react-icons/fa';
 import { IoIosCube } from 'react-icons/io';
-import Image from 'next/image';
+// import Image from 'next/image';
 import {
   Container,
-  Adescription,
-  Adinfo,
-  Adseller,
+  AdDescription,
+  AdInfo,
+  AdSeller,
   GridList,
   GridListTile,
-  GridListTileBar,
+  // GridListTileBar,
   GridHolder,
 } from '../../../styles/pages/AdvertisementsDetails';
 
@@ -40,6 +38,7 @@ const AdvertisementDetails: React.FC = () => {
 
   useEffect(() => {
     setAdvertisement(data?.getAdvertisementById);
+    // eslint-disable-next-line no-console
     console.log(error);
   }, [data, error]);
 
@@ -74,7 +73,7 @@ const AdvertisementDetails: React.FC = () => {
               <img alt="image3" src={item.url} />
             ))}
         </Carousel> */}
-        <Adinfo>
+        <AdInfo>
           {/* {advertisements.map(advertisement =>
             <li>
             <h6>{advertisement.title}</h6>
@@ -91,12 +90,12 @@ const AdvertisementDetails: React.FC = () => {
           <p>infos</p>
           <IoIosCube size="2rem" color="#c1b994" />
           <p>infos</p>
-        </Adinfo>
-        <Adseller>
+        </AdInfo>
+        <AdSeller>
           <FiHome size="2rem" color="#c1b994" />
           <p>infos</p>
-        </Adseller>
-        <Adescription>
+        </AdSeller>
+        <AdDescription>
           <hr />
           <p>
             Endereço:
@@ -111,7 +110,7 @@ const AdvertisementDetails: React.FC = () => {
             {advertisement && advertisement.description}
             <hr />
           </p>
-        </Adescription>
+        </AdDescription>
       </Container>
     </>
   );

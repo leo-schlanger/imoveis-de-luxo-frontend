@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Adescription = styled.div`
+export const AdDescription = styled.div`
   width: 80%;
   p {
     margin-top: 2%;
@@ -44,10 +44,10 @@ export const Adescription = styled.div`
 export const Carrosel = styled.div`
   width: 80%;
   place-items: center;
- 
+
 `;
 
-export const Adinfo = styled.div`
+export const AdInfo = styled.div`
   display: grid;
   place-items: center;
   margin-top: 5%;
@@ -59,7 +59,7 @@ export const Adinfo = styled.div`
   }
 `;
 
-export const Adseller = styled.div`
+export const AdSeller = styled.div`
   display: grid;
   place-items: center;
   margin-top: 1%;
@@ -120,5 +120,5 @@ color: theme.palette.primary.light;
 export const GridListTileBar = styled(GridListTileBarMaterialUI)`
 background:
         linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-    
+
 `;
