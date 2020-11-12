@@ -119,7 +119,7 @@ const Header: React.FC = () => {
           {isOn ? 'Anuncie aqui' : 'Crie sua conta'}
         </Link>
         <Link href="/advertisement-search">Busca de Imoveis</Link>
-        <Link href="/Faq">Informações</Link>
+        <Link href="/faq">Informações</Link>
         <Link href="contacts/">Contato</Link>
       </Navbar>
     </Container>
