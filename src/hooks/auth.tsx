@@ -39,8 +39,8 @@ const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadUserFromCookies(): Promise<void> {
-      const token = Cookies.get('@ImoveisDeLuxoAdm:token');
-      const user = Cookies.get('@ImoveisDeLuxoAdm:user');
+      const token = Cookies.get('@ImoveisDeLuxo:token');
+      const user = Cookies.get('@ImoveisDeLuxo:user');
 
       if (token && user) {
         api.defaults.headers.Authorization = `Bearer ${token}`;
@@ -65,8 +65,8 @@ const AuthProvider: React.FC = ({ children }) => {
       throw new Error('Usuário não autorizado');
     }
 
-    Cookies.set('@ImoveisDeLuxoAdm:token', token, { expires: 2 });
-    Cookies.set('@ImoveisDeLuxoAdm:user', JSON.stringify(user), { expires: 2 });
+    Cookies.set('@ImoveisDeLuxo:token', token, { expires: 2 });
+    Cookies.set('@ImoveisDeLuxo:user', JSON.stringify(user), { expires: 2 });
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
@@ -74,15 +74,15 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
-    Cookies.remove('@ImoveisDeLuxoAdm:token');
-    Cookies.remove('@ImoveisDeLuxoAdm:user');
+    Cookies.remove('@ImoveisDeLuxo:token');
+    Cookies.remove('@ImoveisDeLuxo:user');
 
     setData({ user: null, token: null });
   }, []);
 
   const updateUser = useCallback(
     (user: User) => {
-      Cookies.set('@ImoveisDeLuxoAdm:user', JSON.stringify(user), {
+      Cookies.set('@ImoveisDeLuxo:user', JSON.stringify(user), {
         expires: 2,
       });
 

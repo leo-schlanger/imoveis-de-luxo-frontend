@@ -9,7 +9,11 @@ import getValidationErrors from '../utils/getValidationErrors';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-import { Container, Content, AnimationContainer } from '../../styles/pages/Forgot-Password';
+import {
+  Container,
+  Content,
+  AnimationContainer,
+} from '../../styles/pages/Forgot-Password';
 import api from '../libs/api';
 import {
   schemaForgotPassword,

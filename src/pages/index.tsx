@@ -65,9 +65,9 @@ const Home: React.FC = () => {
             <GridListTile cols={1} rows={0.5} >
             <img src="/assets/casa.svg" alt="house" />
             </GridListTile>
-            
-            
-            
+
+
+
           </GridList>
         </GridHolder>
 
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
           <p>Casa Paris</p>
         </div>
       </Carousel> */}
-       
+
 
         <DivisionBar>
           <a href="/">Rio de Janeiro</a>

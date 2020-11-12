@@ -41,7 +41,7 @@ interface ProfileFormData {
   password_confirmation: string;
 }
 
-const Profile: React.FC = () => {
+const Profile: React.FC = (): JSX.Element => {
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
 

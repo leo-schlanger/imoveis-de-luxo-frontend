@@ -48,7 +48,7 @@ const AdvertisementDetails: React.FC = () => {
       {/* <SEO title={data.getAdvertisementById.title} /> */}
       <Container>
         <GridHolder>
-          <GridList >
+          <GridList>
             <GridListTile>
               <img src="/assets/casa.svg" alt="house" />
             </GridListTile>
@@ -61,7 +61,6 @@ const AdvertisementDetails: React.FC = () => {
             <GridListTile>
               <img src="/assets/casa.svg" alt="house" />
             </GridListTile>
-           
           </GridList>
         </GridHolder>
         {/* <Carousel

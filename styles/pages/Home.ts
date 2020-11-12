@@ -41,7 +41,7 @@ export const DivisionBar = styled.div`
   color: black;
   font-weight: 500;
   padding: 18px;
-  
+
   a {
     display: flex;
     align-items: center;
@@ -197,5 +197,5 @@ flex-direction: row;
 export const GridListTileBar = styled(GridListTileBarMaterialUI)`
 background:
         linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%);
-    
+
 `;

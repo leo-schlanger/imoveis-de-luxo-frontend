@@ -14,8 +14,7 @@ export const client = new ApolloClient({
     operation.setContext({
       headers: {
         'Access-Control-Allow-Origin': '*',
-        authorization:
-          `Bearer ${Cookies.get('@ImoveisDeLuxoAdm:token')}` || null,
+        authorization: `Bearer ${Cookies.get('@ImoveisDeLuxo:token')}` || null,
       },
     });
     return forward(operation);

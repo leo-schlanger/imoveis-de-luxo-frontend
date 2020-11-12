@@ -1,6 +1,6 @@
-import { Container,  Houses } from '../../styles/pages/Faq';
-
 import Image from 'next/image';
+import { Container, Houses } from '../../styles/pages/Faq';
+
 // import { FiSearch } from 'react-icons/fi';
 // import Input from '../../components/Input';
 
@@ -9,15 +9,10 @@ const Faq: React.FC = () => {
     <Container>
       <Houses>
         <div>
-        <Image
-                      src="/assets/alert.svg"
-                      alt="house"
-                      width={500}
-                      height={500}
-                    />
-        <p>Ainda em construção</p>
+          <Image src="/assets/alert.svg" alt="house" width={500} height={500} />
+          <p>Ainda em construção</p>
         </div>
-        </Houses>
+      </Houses>
     </Container>
   );
 };

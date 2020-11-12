@@ -14,7 +14,7 @@ const ApolloProvider: React.FC = ({ children }) => {
     operation.setContext({
       headers: {
         authorization:
-          `Bearer ${Cookies.get('@ImoveisDeLuxoAdm:token')}` || null,
+          `Bearer ${Cookies.get('@ImoveisDeLuxo:token')}` || null,
       },
     });
 

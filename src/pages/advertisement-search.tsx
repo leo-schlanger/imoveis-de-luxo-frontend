@@ -6,7 +6,14 @@ import Image from 'next/image';
 import { FIND_ADVERTISEMENTS } from '../libs/gql/advertisements';
 import { Advertisement } from '../libs/entities/advertisements';
 
-import { Container, Searchbar, Houses, AddTable, Endbar } from '../../styles/pages/Advertisement-Search';
+import {
+  Container,
+  SearchBar,
+  Houses,
+  AddTable,
+  EndBar,
+} from '../../styles/pages/Advertisement-Search';
+import Button from '../components/Button';
 
 interface IQueryData {
   advertisements: {
@@ -40,8 +47,8 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Searchbar>
-        <label>Tipos :</label>
+      <SearchBar>
+        <p>Tipos :</p>
 
         <select name="cars" id="cars">
           <option value="volvo">Apartamentos</option>
@@ -49,14 +56,14 @@ const Home: React.FC = () => {
           <option value="mercedes">Ilhas</option>
           <option value="audi">outros</option>
         </select>
-        <label>Finalidade:</label>
+        <p>Finalidade:</p>
 
         <select name="cars" id="cars">
           <option value="volvo">Venda</option>
           <option value="saab">Locação</option>
         </select>
 
-        <label>Cidade:</label>
+        <p>Cidade:</p>
 
         <select name="cars" id="cars">
           <option value="volvo">Rio de janeiro</option>
@@ -64,7 +71,7 @@ const Home: React.FC = () => {
           <option value="mercedes">Miami</option>
           <option value="audi">Londres</option>
         </select>
-        <label>Bairro:</label>
+        <p>Bairro:</p>
 
         <select name="cars" id="cars">
           <option value="volvo">Baseado na cidade</option>
@@ -72,34 +79,34 @@ const Home: React.FC = () => {
           <option value="mercedes">Baseado na cidade</option>
           <option value="audi">Baseado na cidade</option>
         </select>
-        <button>Buscar</button>
-      </Searchbar>
+        <Button>Buscar</Button>
+      </SearchBar>
 
       <Houses>
         <AddTable>
-        {data &&
-              data.advertisements.list &&
-              data.advertisements.list.map((advertisement) => (
-                <li key={advertisement.id}>
-                  <a href={`advertisement-details/${advertisement.id}`}>
-                    <Image
-                      src="/assets/casa.svg"
-                      alt="house"
-                      width={500}
-                      height={500}
-                    />
-                    <h6>{advertisement.title}</h6>
-                    <hr />
-                    <p>Venda</p>
-                    <h6>Rio de janeiro</h6>
-                    <p>{advertisement.property.value}</p>
-                    <h6>Preço</h6>
-                    <hr />
-                  </a>
-                </li>
-              ))}
+          {data &&
+            data.advertisements.list &&
+            data.advertisements.list.map((advertisement) => (
+              <li key={advertisement.id}>
+                <a href={`advertisement-details/${advertisement.id}`}>
+                  <Image
+                    src="/assets/casa.svg"
+                    alt="house"
+                    width={500}
+                    height={500}
+                  />
+                  <h6>{advertisement.title}</h6>
+                  <hr />
+                  <p>Venda</p>
+                  <h6>Rio de janeiro</h6>
+                  <p>{advertisement.property.value}</p>
+                  <h6>Preço</h6>
+                  <hr />
+                </a>
+              </li>
+            ))}
 
-          <Endbar>
+          <EndBar>
             <button
               disabled={page === 1}
               type="button"
@@ -115,7 +122,7 @@ const Home: React.FC = () => {
             >
               <BiArrowToRight size={30} />
             </button>
-          </Endbar>
+          </EndBar>
         </AddTable>
       </Houses>
     </Container>

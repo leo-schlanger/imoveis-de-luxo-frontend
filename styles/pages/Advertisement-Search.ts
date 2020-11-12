@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import colors from '../../styles/colors';
 import { Checkbox as CheckboxMaterialUI } from '@material-ui/core';
 
-import colors from '../../styles/colors';
+import colors from '../colors';
 
 interface AdvertsimentProps {
   background_url: string;
@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Searchbar = styled.div`
+export const SearchBar = styled.div`
   display: flex;
   width: 100%;
   height: 70px;
@@ -121,7 +121,7 @@ export const AddTable = styled.ul`
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 24px;
   list-style: none;
-  
+
   ul li {
     width: 200px;
     background: #fff;
@@ -156,23 +156,25 @@ export const AddTable = styled.ul`
     color: #c1b994;
     background-color: #c1b994;
     height: 2px;
-   
+
   }
 `;
-export const Endbar = styled.div`
+export const EndBar = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   font-family: 'Open sans';
- 
-  button { margin-left: 12%;
+
+  button {
+    margin-left: 12%;
     color: #c1b994;
     border-radius: 4px;
     padding: 12px;
   }
 
-  button + button { margin-left: 60%;
+  button + button {
+    margin-left: 60%;
     border-radius: 4px;
     color: #c1b994;
     padding: 12px;
